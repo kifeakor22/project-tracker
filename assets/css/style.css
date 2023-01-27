@@ -1,0 +1,40 @@
+.hero {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 40px;
+    height: 200px;
+}
+
+.mainBody {
+    margin-top: 40px;
+}
+
+.card {
+    font-weight: bold;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#instruct {
+    background-color: rgb(135, 135, 182);
+    padding: 10px;
+}
+
+.card-footer {
+    background-color: rgb(30, 28, 32);
+    align-items: center !important;
+}
+
+.table {
+    padding: 10px;
+}
+
+thead {
+    background-color: black;
+    color: white;
+}
+
+.modal-header, .modal-footer {
+    background-color: black;
+    color: white;
+}
