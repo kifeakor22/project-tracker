@@ -28,6 +28,15 @@ let addProject = function (event){
     var projectType =typeOfProjectInput.val()
     var rate = hourlyRateInput.val()
     var dueDate = dueDateInput.val()
+    var currentDate = moment();
+    var dayDue = moment(dueDate, "YYYY-MM-DD");
+    if (dayDue.isAfter(currentDate)) {
+    // Calculate the difference between the due date and the current date in days
+    var due = dayDue.diff(currentDate, 'days');
+} else {
+    alert("The due date has already passed.");
+    return;
+}
     var tableRow = $("<tr>")
 
     // Create table cells for each input value
@@ -35,12 +44,13 @@ let addProject = function (event){
     var typeCell = $("<td>").text(projectType)
     var rateCell = $("<td>").text(rate)
     var dueDateCell = $("<td>").text(dueDate)
+    var dayUntillDueCell = $("<td>").text(`${due} days`)
 
 
     
 
     // Append the cells to the new row
-    tableRow.append(nameCell, typeCell, rateCell, dueDateCell)
+    tableRow.append(nameCell, typeCell, rateCell, dueDateCell, dayUntillDueCell)
 
     // Append the new row to the table body
     $("#tableBody").append(tableRow)
@@ -49,8 +59,10 @@ let addProject = function (event){
     dueDateInput.val("")
     typeOfProjectInput.val("")
     hourlyRateInput.val("")
+    $('#projectModal').modal('hide')
 }
 addProjectBtn.on("click", addProject)
+
 
 
 
