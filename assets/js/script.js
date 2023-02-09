@@ -8,7 +8,6 @@ let tableRow = $("<tr>")
 let tableData = $("<td>")
 let addProjectBtn = $(".addProjectBtn")
 
-
 let timeInterval;
 
 // get time function
@@ -45,12 +44,15 @@ let addProject = function (event){
     var rateCell = $("<td>").text(rate)
     var dueDateCell = $("<td>").text(dueDate)
     var dayUntillDueCell = $("<td>").text(`${due} days`)
+    var jobComp = $("<td>").append($("<input>").attr({
+        type: "checkbox",
+        id: "checkboxId",name: "checkboxName"}))  
+    var pEarning = $("<td>").text(` £${rate*due}`)
 
 
-    
 
     // Append the cells to the new row
-    tableRow.append(nameCell, typeCell, rateCell, dueDateCell, dayUntillDueCell)
+    tableRow.append(nameCell, typeCell, rateCell, dueDateCell, dayUntillDueCell,pEarning,jobComp)
 
     // Append the new row to the table body
     $("#tableBody").append(tableRow)
@@ -62,9 +64,5 @@ let addProject = function (event){
     $('#projectModal').modal('hide')
 }
 addProjectBtn.on("click", addProject)
-
-
-
-
 
 startTime()
